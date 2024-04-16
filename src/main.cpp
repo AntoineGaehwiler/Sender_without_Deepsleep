@@ -52,7 +52,6 @@ int measureDistance() {
   duration = pulseIn(PIN_ULTRASOUND_ECHO, HIGH);
   // Calculating the distance
   distance = duration * 0.017;
-
   return distance;
 }
 
@@ -85,6 +84,7 @@ void changeDistance(){
   }
 }
 
+// Init of the ESP32 connection
 void InitESPNow(){
   // WIFI Einstellungen
   WiFi.mode(WIFI_STA);
@@ -114,7 +114,7 @@ void InitESPNow(){
 }
 
 
-void resetCounterAndResendData(){
+/* void resetCounterAndResendData(){
   counter = 1;
   occupied = true;
   myMessageToBeSent.distanzWC = distance;
@@ -124,7 +124,7 @@ void resetCounterAndResendData(){
   delay(100);
   Serial.println("Sending before TimerSleep:");
   Serial.println(result == ESP_OK ? "Sent with success" : "Error sending the data");
-}
+} */
 
 bool MotionDetection(){
   bool motion = false;
